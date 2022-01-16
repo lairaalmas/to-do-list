@@ -1,6 +1,6 @@
 :root {
   --white: #f0f0f0;
-  --navy: #0b1027;
+  --navy: #1d8cd6;
 }
 
 body {
@@ -135,8 +135,8 @@ body {
   border: none;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
   outline: none;
-  border-radius: 2px;
   cursor: pointer;
+  margin-left: 15px;
 }
 .check-button:hover {
   color: var(--white);
