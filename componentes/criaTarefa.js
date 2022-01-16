@@ -53,7 +53,7 @@ export const Tarefa = ({valor, dataFormatada}) => { // esse 'evento' está sendo
   // adiciona classe a li
   tarefa.classList.add('task');
   // cria conteudo da li
-  const conteudo = `<p class="content">${dataFormatada} * ${valor}</p>`;   // ``(acentos graves - crase) - isso é uma 'template string' - intercala codigo html com js
+  const conteudo = `<p class="content">(${dataFormatada}) ${valor}</p>`;   // ``(acentos graves - crase) - isso é uma 'template string' - intercala codigo html com js
   // adiciona conteudo a li
   tarefa.innerHTML = conteudo;
 
