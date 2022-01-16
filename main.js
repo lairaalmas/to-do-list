@@ -2,7 +2,11 @@
 import { handleNovoItem } from "./componentes/criaTarefa.js";
 import { carregaTarefa } from "./componentes/carregaTarefa.js";
 
+const calendario = document.querySelector('[data-form-date]');
+const currentDate = moment().format().slice(0,16);
 const novaTarefa = document.querySelector('[data-form-button]');
+
+calendario.value = currentDate; // coloca o horario atual por padrão
 
 novaTarefa.addEventListener('click', handleNovoItem);
 
