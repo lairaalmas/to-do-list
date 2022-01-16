@@ -25,11 +25,16 @@ export const handleNovoItem = (evento) => {
   const calendario = document.querySelector('[data-form-date]');
   // 'moment' é uma biblioteca de manipulação de data
   const data = moment(calendario.value);
+  const horario = data.format('HH:mm')
   const dataFormatada = data.format('DD/MM/YYYY');
+  // estado atual do botao de concluir
+  const concluida = false; 
 
   const dados = {
     valor, 
-    dataFormatada
+    dataFormatada,
+    horario,
+    concluida
   }
 
   // eu poderia só dar um push aqui?
@@ -46,21 +51,27 @@ export const handleNovoItem = (evento) => {
 }
 
 // O inicio com letra maiuscula esta indicando que é um componente 
-export const Tarefa = ({valor, dataFormatada}) => { // esse 'evento' está sendo passado como argumento no eventListener
+export const Tarefa = ({valor, horario, concluida}, id) => {
 
   // cria li
   const tarefa = document.createElement('li');
+
+  // cria conteudo da li
+  const conteudo = `<p class="content">(${horario}) ${valor}</p>`;   // ``(acentos graves - crase) - isso é uma 'template string' - intercala codigo html com js
+  
+  if (concluida) {
+    tarefa.classList.add('done');
+  }
   // adiciona classe a li
   tarefa.classList.add('task');
-  // cria conteudo da li
-  const conteudo = `<p class="content">(${dataFormatada}) ${valor}</p>`;   // ``(acentos graves - crase) - isso é uma 'template string' - intercala codigo html com js
+
   // adiciona conteudo a li
   tarefa.innerHTML = conteudo;
 
   // adiciona botão de concluido ao li
-  tarefa.appendChild(BotaoConclui());
+  tarefa.appendChild(BotaoConclui(carregaTarefa, id));
   // adiciona botão de deletar ao li
-  tarefa.appendChild(BotaoDeleta());
+  tarefa.appendChild(BotaoDeleta(carregaTarefa, id));
 
   return tarefa;
 }

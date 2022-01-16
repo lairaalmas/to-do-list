@@ -1,21 +1,24 @@
 
+const concluirTarefa = (atualiza, id) => {
+  const tarefasCadastradas = JSON.parse(localStorage.getItem('tarefas'));
+  
+  tarefasCadastradas[id].concluida = !tarefasCadastradas[id].concluida;
+  localStorage.setItem('tarefas', JSON.stringify(tarefasCadastradas));
+
+  atualiza();
+
+}
+
 // ta usando a convensão variavel maiuscula para componente
-const BotaoConclui = () => {
+const BotaoConclui = (atualiza, id) => {
   const botaoConclui = document.createElement('button');
+
   botaoConclui.classList.add('check-button');
   botaoConclui.innerText = 'Concluído';
 
-  botaoConclui.addEventListener('click', concluirTarefa);
+  botaoConclui.addEventListener('click', () => concluirTarefa(atualiza, id));
 
   return botaoConclui;
-}
-
-const concluirTarefa = (evento) => {
-  const botaoConclui = evento.target;
-
-  const tarefaCompleta = botaoConclui.parentElement;
-
-  tarefaCompleta.classList.toggle('done');
 }
 
 // modularizando o codigo
