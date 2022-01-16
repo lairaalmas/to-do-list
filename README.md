@@ -12,6 +12,6 @@
 - JavaScript
   - Manipulação de DOM usando [data-* attributes](https://www.w3schools.com/tags/att_data-.asp) e [querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector)
   - Armazenamento local com [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
-  - Manipualão de datas com [Moment](https://momentjs.com/)
+  - Manipulação de datas com [Moment](https://momentjs.com/)
   - [Template strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
   - Componentes/Estrutura modular
